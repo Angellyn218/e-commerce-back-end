@@ -56,11 +56,9 @@ router.put('/:id', async (req, res) => {
       }
     })
 
-    const obj = await Category.findByPk(req.params.id, {
-      include: [{ model: Product}],
-    });
+    const category = await Category.findByPk(req.params.id);
     
-    if (!obj) {
+    if (!category) {
       res.status(404).json({ message: 'No category found with that id!' });
       return;
     } else if (CategoryData[0] === 0) {
@@ -68,15 +66,34 @@ router.put('/:id', async (req, res) => {
       return;
     }
 
-    CategoryData.push(obj);
-    res.status(200).json(CategoryData);
+    res.status(200).json({ message: 'Updated Category', category });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', async (req, res) => {
   // delete a category by its `id` value
+  try {
+    const category = await Category.findByPk(req.params.id, {
+      include: [{ model: Product}],
+    });
+
+    const CategoryData = await Category.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+
+    if (!CategoryData) {
+      res.status(404).json({ message: 'No category found with that id!' });
+      return;
+    }
+
+    res.status(200).json({ message: 'Deleted Category', category });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;
