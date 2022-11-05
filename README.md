@@ -105,7 +105,7 @@ To delete an item by id and its data in a given route, select DELETE in Insomnia
 
 When you want to stop running the server in your terminal, press 'control + c'. This will stop the port from listening
 
-For a full walkthrough of this program, watch [this video]()
+For a full walkthrough of this program, watch [this video](https://watch.screencastify.com/v/5fcVtETlqynYLnhvIN6s)
 
 ## Credits
 
