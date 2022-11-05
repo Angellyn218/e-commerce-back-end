@@ -123,7 +123,7 @@ router.delete('/:id', async (req, res) => {
 
     const productTagsToRemove = await ProductTag.findAll({ where: { tag_id: req.params.id } });
 
-    ProductTag.destroy({ where: { id: productTagsToRemove } }),
+    await ProductTag.destroy({ where: { id: productTagsToRemove } });
 
     res.status(200).json({ message: 'Deleted Tag', tag });
   } catch (err) {

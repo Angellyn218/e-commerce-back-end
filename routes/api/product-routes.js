@@ -133,6 +133,10 @@ router.delete('/:id', async(req, res) => {
       return;
     }
 
+    const productTagsToRemove = await ProductTag.findAll({ where: {product_id: req.params.id } });
+
+    await ProductTag.destroy({ where: { id: productTagsToRemove } });
+
     res.status(200).json({ message: 'Deleted Product', product });
   } catch (err) {
     res.status(500).json(err);
