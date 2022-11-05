@@ -27,35 +27,35 @@ The program takes the structures of categories, products, and tags and allows th
 
 ## Usage
 
-Before you run this program, you need to create a database and tables using MySQL. Log into your terminal's MySQL by typing in 'mysql -u root -p' and entering your password when prompted. If this does not work, set your local machine to have the default user 'root' and try again.
+Before you run this program, you need to create a database using MySQL. Navigate into your 'ecommerce-back-end' folder. Log into your terminal's MySQL by typing in 'mysql -u root -p' and entering your password when prompted. If this does not work, set your local machine to have the default user 'root' and try again.
 
 ![MySQL Login](assets/images/mysql-login.png)
 
-Copy and paste the code from 'schema.sql' (in the 'db' folder) into your terminal. To quit MySQL, type in '\q' into your and press return.
+Create a database by copying and pasting the code from 'schema.sql' (in the 'db' folder) into your terminal. You can also create a database by running 'source db/schema.sql' in MySQL. To quit MySQL, type in '\q' into your terminal and press return.
 
-Now, seed the application by running 'npm run seed' in your terminal. This will seed your application with some data. 
+To seed the database, run 'npm run seed' in your terminal. 
 
 Now, type 'npm start' in your terminal to run the program. This will start a server on your local computer.
 
-Open up Insomnia.
+Open up Insomnia. This is what can be used to call this application's API routes.
 
-There are 3 possible API routes in this application: 'categories', 'products', and 'tags'. Each of these routes has 5 different functions that can be taken from that route: GET all, GET by id, POST (create), PUT (update) by id, and DELETE by id. 
+There are 3 possible API routes in this application: 'categories', 'products', and 'tags'. Each of these routes has 5 different functionalities: GET all, GET by id, POST (create), PUT (update) by id, and DELETE by id. 
 
-To get all data in a given route, select GET in Insomnia's method dropdown and type this into the url input section: "http://localhost:3001/api/(route)". (Route) is either 'categories', 'products', or 'tags'. Press the send button to get the desired data.
+To get all data in a given route, select GET in Insomnia's method dropdown and type this into the url input section: "http://localhost:3001/api/(route)". ((Route) is either 'categories', 'products', or 'tags'.) Press the send button to get the desired data.
 
-(add image here)
+![Categories get all route with response in Insomnia](assets/images/get-all.png)
 
-To get an item by id and its data in a given route, select GET in Insomnia's method dropdown and type this into the url input section: "http://localhost:3001/api/(route)/(id)". (Route) is either 'categories', 'products', or 'tags' while 'id' is the integer associated with the desired item. Press the send button to get the desired data.
+To get an item by id (and its data) in a given route, select GET in Insomnia's method dropdown and type this into the url input section: "http://localhost:3001/api/(route)/(id)". ('Route' is either 'categories', 'products', or 'tags' while 'id' is the integer associated with the desired item.) Press the send button to get the desired data.
 
-(add image here)
+![Categories get by id route with response in Insomnia](assets/images/get-by-id.png)
 
-To create a new item in a given route, select POST in Insomnia's method dropdown and type this into the url input section: "http://localhost:3001/api/(route)". (Route) is either 'categories', 'products', or 'tags'. 
+To create a new item in a given route, select POST in Insomnia's method dropdown and type this into the url input section: "http://localhost:3001/api/(route)". ((Route) is either 'categories', 'products', or 'tags'.)
 
-(add image here)
+![Categories post route and no json in Insomnia](assets/images/post-no-body.png)
 
-You will also need to add a json item to post. To do this click on the input dropdown right under the method dropdown (currently 'POST'). The input dropdown should have the default 'body' showing, but it could be another data type. Once the drop down is opened, select 'JSON' as the input type.
+You will also need to add a json body to post. To do this, click on the input dropdown right under the method dropdown (currently 'POST'). The input dropdown should have the default text 'body' showing, but it could be another data type. Once the drop down is opened, select 'JSON' as the input type.
 
-(add image here)
+![Categories post route and input dropdown in Insomnia](assets/images/post-input-dropdown.png)
 
 For categories, you will need to format your input like the following
 
@@ -88,23 +88,24 @@ For tags, you will need to format your input like the following. ('productIds' l
 
 The final product before pressing the 'send' button will look something like this:
 
-(add image here)
+![Categories post route and json in Insomnia](assets/images/post-with-json.png)
 
-To update an item by id and its data in a given route, select PUT in Insomnia's method dropdown and type this into the url input section: "http://localhost:3001/api/(route)/(id)". 'Route' is either 'categories', 'products', or 'tags' while 'id' is the integer associated with the desired item. 
+To update an item by id and its data in a given route, select PUT in Insomnia's method dropdown and type this into the url input section: "http://localhost:3001/api/(route)/(id)". ('Route' is either 'categories', 'products', or 'tags' while 'id' is the integer associated with the desired item.)
 
-(add image here)
+![Categories put route and no json in Insomnia](assets/images/put-no-body.png)
 
 Like with the post method, you will also need to add a json item to update. Follow what was done with the post method above. When you have a screen that resembles the 
 one below, you can press the send button.
 
-(add image here)
+![Categories put route and no json in Insomnia](assets/images/put-with-json.png)
 
-To delete an item by id and its data in a given route, select DELETE in Insomnia's method dropdown and type this into the url input section: "http://localhost:3001/api/(route)/(id)". 'Route' is either 'categories', 'products', or 'tags' while 'id' is the integer associated with the desired item. Press the send button to delete the data.
+To delete an item by id and its data in a given route, select DELETE in Insomnia's method dropdown and type this into the url input section: "http://localhost:3001/api/(route)/(id)". ('Route' is either 'categories', 'products', or 'tags' while 'id' is the integer associated with the desired item.) Press the send button to delete the data.
 
-(add image here)
+![Categories put route and no json in Insomnia](assets/images/delete.png)
 
 When you want to stop running the server in your terminal, press 'control + c'. This will stop the port from listening
 
+For a full walkthrough of this program, watch [this video]()
 
 ## Credits
 
